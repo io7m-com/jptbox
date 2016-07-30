@@ -31,10 +31,16 @@ public final class JPTextBoxDrawingDemo
 
   public static void main(final String[] args)
   {
-    final JPTextImageType image = JPTextImage.create(40, 10);
+    final JPTextImageType image = JPTextImage.create(80, 10);
     final JPTextBoxDrawingType draw = JPTextBoxDrawing.get();
 
-    draw.drawBoxSilent(image, 3, 3, 1, 1);
+    draw.drawBox(image, 0, 0, 30, 3);
+    draw.drawBox(image, 29, 0, 10, 3);
+    draw.drawBox(image, 38, 0, 10, 3);
+
+    draw.drawBox(image, 0, 2, 30, 3);
+    draw.drawBox(image, 29, 2, 10, 3);
+    draw.drawBox(image, 38, 2, 10, 3);
 
     System.out.println(JPTextImages.show(image));
   }

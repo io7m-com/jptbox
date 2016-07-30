@@ -316,6 +316,54 @@ public abstract class JPTextBoxDrawingContract
   }
 
   @Test
+  public final void testDrawBoxCaseJunction0()
+  {
+    final JPTextImageType image = JPTextImage.create(16, 16);
+    final JPTextBoxDrawingType draw = this.create();
+
+    draw.drawBox(image, 2, 2, 3, 3);
+    draw.drawBox(image, 2, 4, 3, 3);
+    draw.drawBox(image, 4, 3, 3, 3);
+    System.out.println(JPTextImages.show(image));
+  }
+
+  @Test
+  public final void testDrawBoxCaseJunction1()
+  {
+    final JPTextImageType image = JPTextImage.create(16, 16);
+    final JPTextBoxDrawingType draw = this.create();
+
+    draw.drawBox(image, 2, 2, 3, 3);
+    draw.drawBox(image, 2, 4, 3, 3);
+    draw.drawBox(image, 0, 3, 3, 3);
+    System.out.println(JPTextImages.show(image));
+  }
+
+  @Test
+  public final void testDrawBoxCaseJunction2()
+  {
+    final JPTextImageType image = JPTextImage.create(16, 16);
+    final JPTextBoxDrawingType draw = this.create();
+
+    draw.drawBox(image, 2, 2, 3, 3);
+    draw.drawBox(image, 4, 2, 3, 3);
+    draw.drawBox(image, 3, 0, 3, 3);
+    System.out.println(JPTextImages.show(image));
+  }
+
+  @Test
+  public final void testDrawBoxCaseJunction3()
+  {
+    final JPTextImageType image = JPTextImage.create(16, 16);
+    final JPTextBoxDrawingType draw = this.create();
+
+    draw.drawBox(image, 2, 2, 3, 3);
+    draw.drawBox(image, 4, 2, 3, 3);
+    draw.drawBox(image, 3, 4, 3, 3);
+    System.out.println(JPTextImages.show(image));
+  }
+
+  @Test
   public final void testDrawBoxCaseEmpty0()
   {
     final JPTextImageType image = JPTextImage.create(16, 16);

@@ -70,6 +70,7 @@ public final class JPTextBoxDrawing implements JPTextBoxDrawingType
     final int new_char)
   {
     switch (existing_char) {
+
       case '┐': {
         switch (new_char) {
           case '┘':
@@ -174,6 +175,106 @@ public final class JPTextBoxDrawing implements JPTextBoxDrawingType
 
           case '─':
             return '┼';
+        }
+        break;
+      }
+
+      case '┼': {
+        switch (new_char) {
+          case '┘':
+            return '┼';
+          case '└':
+            return '┼';
+
+          case '┐':
+            return '┼';
+          case '┌':
+            return '┼';
+
+          case '│':
+            return '┼';
+          case '─':
+            return '┼';
+        }
+        break;
+      }
+
+      case '┤': {
+        switch (new_char) {
+          case '┘':
+            return '┤';
+          case '└':
+            return '┼';
+
+          case '┌':
+            return '┼';
+          case '┐':
+            return '┼';
+
+          case '│':
+            return '┤';
+          case '─':
+            return '┼';
+        }
+        break;
+      }
+
+      case '├': {
+        switch (new_char) {
+          case '┘':
+            return '┼';
+          case '└':
+            return '├';
+
+          case '┌':
+            return '├';
+          case '┐':
+            return '┼';
+
+          case '│':
+            return '├';
+          case '─':
+            return '┼';
+        }
+        break;
+      }
+
+      case '┬': {
+        switch (new_char) {
+          case '┘':
+            return '┼';
+          case '└':
+            return '┼';
+
+          case '┌':
+            return '┬';
+          case '┐':
+            return '┬';
+
+          case '│':
+            return '┼';
+          case '─':
+            return '┬';
+        }
+        break;
+      }
+
+      case '┴': {
+        switch (new_char) {
+          case '┘':
+            return '┴';
+          case '└':
+            return '┴';
+
+          case '┌':
+            return '┼';
+          case '┐':
+            return '┼';
+
+          case '│':
+            return '┼';
+          case '─':
+            return '┴';
         }
       }
     }
