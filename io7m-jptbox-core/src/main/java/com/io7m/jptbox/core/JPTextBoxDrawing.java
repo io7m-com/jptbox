@@ -65,6 +65,7 @@ public final class JPTextBoxDrawing implements JPTextBoxDrawingType
     }
   }
 
+  // CHECKSTYLE:OFF
   private static int mergeCharacter(
     final int existing_char,
     final int new_char)
@@ -279,6 +280,7 @@ public final class JPTextBoxDrawing implements JPTextBoxDrawingType
       }
     }
 
+    // CHECKSTYLE:ON
     return new_char;
   }
 
