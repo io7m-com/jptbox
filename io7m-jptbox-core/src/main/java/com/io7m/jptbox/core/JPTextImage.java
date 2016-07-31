@@ -28,22 +28,6 @@ public final class JPTextImage implements JPTextImageType
   private final int height;
   private final int[] chars;
 
-  /**
-   * Create a new image.
-   *
-   * @param width  The width
-   * @param height The height
-   *
-   * @return A new image
-   */
-
-  public static JPTextImageType create(
-    final int width,
-    final int height)
-  {
-    return new JPTextImage(width, height);
-  }
-
   private JPTextImage(
     final int in_width,
     final int in_height)
@@ -64,6 +48,22 @@ public final class JPTextImage implements JPTextImageType
     for (int index = 0; index < this.chars.length; ++index) {
       this.chars[index] = ' ';
     }
+  }
+
+  /**
+   * Create a new image.
+   *
+   * @param width  The width
+   * @param height The height
+   *
+   * @return A new image
+   */
+
+  public static JPTextImageType create(
+    final int width,
+    final int height)
+  {
+    return new JPTextImage(width, height);
   }
 
   @Override

@@ -40,8 +40,8 @@ public interface JPTextBoxDrawingType
     int height);
 
   /**
-   * Draw a box without raising any exceptions if any part of the box is
-   * outside of the image.
+   * Draw a box without raising any exceptions if any part of the box is outside
+   * of the image.
    *
    * @param image  The target image
    * @param base_x The X value of the top left corner

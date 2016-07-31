@@ -27,6 +27,11 @@ public final class JPTextBoxDrawing implements JPTextBoxDrawingType
 {
   private static final JPTextBoxDrawingType INSTANCE = new JPTextBoxDrawing();
 
+  private JPTextBoxDrawing()
+  {
+
+  }
+
   /**
    * @return Access to the default instance
    */
@@ -34,11 +39,6 @@ public final class JPTextBoxDrawing implements JPTextBoxDrawingType
   public static JPTextBoxDrawingType get()
   {
     return JPTextBoxDrawing.INSTANCE;
-  }
-
-  private JPTextBoxDrawing()
-  {
-
   }
 
   private static void merge(
@@ -73,210 +73,80 @@ public final class JPTextBoxDrawing implements JPTextBoxDrawingType
     switch (existing_char) {
 
       case '┐': {
-        switch (new_char) {
-          case '┘':
-            return '┤';
-          case '└':
-            return '┼';
-
-          case '┌':
-            return '┬';
-
-          case '│':
-            return '┤';
-          case '─':
-            return '┬';
+        if (JPTextBoxLightMaps.EXISTS_TOP_RIGHT_CORNER.containsKey(new_char)) {
+          return JPTextBoxLightMaps.EXISTS_TOP_RIGHT_CORNER.get(new_char);
         }
-        break;
+        return new_char;
       }
 
       case '┌': {
-        switch (new_char) {
-          case '┘':
-            return '┼';
-          case '└':
-            return '├';
-
-          case '┐':
-            return '┬';
-
-          case '│':
-            return '├';
-          case '─':
-            return '┬';
+        if (JPTextBoxLightMaps.EXISTS_TOP_LEFT_CORNER.containsKey(new_char)) {
+          return JPTextBoxLightMaps.EXISTS_TOP_LEFT_CORNER.get(new_char);
         }
-        break;
+        return new_char;
       }
 
       case '└': {
-        switch (new_char) {
-          case '┘':
-            return '┴';
-
-          case '┌':
-            return '├';
-          case '┐':
-            return '┼';
-
-          case '│':
-            return '├';
-          case '─':
-            return '┴';
+        if (JPTextBoxLightMaps.EXISTS_BOTTOM_LEFT_CORNER.containsKey(new_char)) {
+          return JPTextBoxLightMaps.EXISTS_BOTTOM_LEFT_CORNER.get(new_char);
         }
-        break;
+        return new_char;
       }
 
       case '┘': {
-        switch (new_char) {
-          case '└':
-            return '┴';
-
-          case '┌':
-            return '┼';
-          case '┐':
-            return '┤';
-
-          case '│':
-            return '┤';
-          case '─':
-            return '┴';
+        if (JPTextBoxLightMaps.EXISTS_BOTTOM_RIGHT_CORNER.containsKey(new_char)) {
+          return JPTextBoxLightMaps.EXISTS_BOTTOM_RIGHT_CORNER.get(new_char);
         }
-        break;
+        return new_char;
       }
 
       case '─': {
-        switch (new_char) {
-          case '┘':
-            return '┴';
-          case '└':
-            return '┴';
-
-          case '┌':
-            return '┬';
-          case '┐':
-            return '┬';
-
-          case '│':
-            return '┼';
+        if (JPTextBoxLightMaps.EXISTS_HORIZONTAL.containsKey(new_char)) {
+          return JPTextBoxLightMaps.EXISTS_HORIZONTAL.get(new_char);
         }
-        break;
+        return new_char;
       }
 
       case '│': {
-        switch (new_char) {
-          case '└':
-            return '├';
-          case '┘':
-            return '┤';
-
-          case '┌':
-            return '├';
-          case '┐':
-            return '┤';
-
-          case '─':
-            return '┼';
+        if (JPTextBoxLightMaps.EXISTS_VERTICAL.containsKey(new_char)) {
+          return JPTextBoxLightMaps.EXISTS_VERTICAL.get(new_char);
         }
-        break;
+        return new_char;
       }
 
       case '┼': {
-        switch (new_char) {
-          case '┘':
-            return '┼';
-          case '└':
-            return '┼';
-
-          case '┐':
-            return '┼';
-          case '┌':
-            return '┼';
-
-          case '│':
-            return '┼';
-          case '─':
-            return '┼';
+        if (JPTextBoxLightMaps.EXISTS_CROSS.containsKey(new_char)) {
+          return JPTextBoxLightMaps.EXISTS_CROSS.get(new_char);
         }
-        break;
+        return new_char;
       }
 
       case '┤': {
-        switch (new_char) {
-          case '┘':
-            return '┤';
-          case '└':
-            return '┼';
-
-          case '┌':
-            return '┼';
-          case '┐':
-            return '┼';
-
-          case '│':
-            return '┤';
-          case '─':
-            return '┼';
+        if (JPTextBoxLightMaps.EXISTS_JUNCTION_LEFT.containsKey(new_char)) {
+          return JPTextBoxLightMaps.EXISTS_JUNCTION_LEFT.get(new_char);
         }
-        break;
+        return new_char;
       }
 
       case '├': {
-        switch (new_char) {
-          case '┘':
-            return '┼';
-          case '└':
-            return '├';
-
-          case '┌':
-            return '├';
-          case '┐':
-            return '┼';
-
-          case '│':
-            return '├';
-          case '─':
-            return '┼';
+        if (JPTextBoxLightMaps.EXISTS_JUNCTION_RIGHT.containsKey(new_char)) {
+          return JPTextBoxLightMaps.EXISTS_JUNCTION_RIGHT.get(new_char);
         }
-        break;
+        return new_char;
       }
 
       case '┬': {
-        switch (new_char) {
-          case '┘':
-            return '┼';
-          case '└':
-            return '┼';
-
-          case '┌':
-            return '┬';
-          case '┐':
-            return '┬';
-
-          case '│':
-            return '┼';
-          case '─':
-            return '┬';
+        if (JPTextBoxLightMaps.EXISTS_JUNCTION_DOWN.containsKey(new_char)) {
+          return JPTextBoxLightMaps.EXISTS_JUNCTION_DOWN.get(new_char);
         }
-        break;
+        return new_char;
       }
 
       case '┴': {
-        switch (new_char) {
-          case '┘':
-            return '┴';
-          case '└':
-            return '┴';
-
-          case '┌':
-            return '┼';
-          case '┐':
-            return '┼';
-
-          case '│':
-            return '┼';
-          case '─':
-            return '┴';
+        if (JPTextBoxLightMaps.EXISTS_JUNCTION_UP.containsKey(new_char)) {
+          return JPTextBoxLightMaps.EXISTS_JUNCTION_UP.get(new_char);
         }
+        return new_char;
       }
     }
 
