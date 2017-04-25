@@ -14,7 +14,7 @@
 
   <groupId>com.io7m.jptbox</groupId>
   <artifactId>com.io7m.jptbox</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0</version>
 
   <packaging>pom</packaging>
   <name>com.io7m.jptbox</name>
