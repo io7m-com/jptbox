@@ -16,7 +16,7 @@
 
 package com.io7m.jptbox.core;
 
-import org.valid4j.Assertive;
+import com.io7m.jaffirm.core.Preconditions;
 
 /**
  * The default implementation of the {@link JPTextImageType} interface.
@@ -32,14 +32,14 @@ public final class JPTextImage implements JPTextImageType
     final int in_width,
     final int in_height)
   {
-    Assertive.require(
+    Preconditions.checkPreconditionI(
+      in_width,
       in_width > 0,
-      "Width (%d) must be positive",
-      Integer.valueOf(in_width));
-    Assertive.require(
+      w -> "Width must be positive");
+    Preconditions.checkPreconditionI(
+      in_height,
       in_height > 0,
-      "Height (%d) must be positive",
-      Integer.valueOf(in_height));
+      h -> "Height must be positive");
 
     this.width = in_width;
     this.height = in_height;
@@ -133,21 +133,21 @@ public final class JPTextImage implements JPTextImageType
     final int x,
     final int y)
   {
-    Assertive.require(
+    Preconditions.checkPreconditionV(
       x >= 0,
       "X (%d) must be >= 0",
       Integer.valueOf(x));
-    Assertive.require(
+    Preconditions.checkPreconditionV(
       x < this.width,
       "X (%d) must be < width (%d)",
       Integer.valueOf(x),
       Integer.valueOf(this.width));
 
-    Assertive.require(
+    Preconditions.checkPreconditionV(
       y >= 0,
       "Y (%d) must be >= 0",
       Integer.valueOf(y));
-    Assertive.require(
+    Preconditions.checkPreconditionV(
       y < this.height,
       "Y (%d) must be < height (%d)",
       Integer.valueOf(y),

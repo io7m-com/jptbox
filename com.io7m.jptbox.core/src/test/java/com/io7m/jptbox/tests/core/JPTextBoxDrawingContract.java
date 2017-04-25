@@ -16,6 +16,7 @@
 
 package com.io7m.jptbox.tests.core;
 
+import com.io7m.jaffirm.core.PreconditionViolationException;
 import com.io7m.jptbox.core.JPTextBoxDrawingType;
 import com.io7m.jptbox.core.JPTextImage;
 import com.io7m.jptbox.core.JPTextImageType;
@@ -23,7 +24,6 @@ import com.io7m.jptbox.core.JPTextImages;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-import org.valid4j.errors.RequireViolation;
 
 public abstract class JPTextBoxDrawingContract
 {
@@ -37,7 +37,7 @@ public abstract class JPTextBoxDrawingContract
     final JPTextImageType image = JPTextImage.create(2, 2);
     final JPTextBoxDrawingType draw = this.create();
 
-    this.expected.expect(RequireViolation.class);
+    this.expected.expect(PreconditionViolationException.class);
     draw.drawBox(image, 0, 0, 3, 3);
   }
 

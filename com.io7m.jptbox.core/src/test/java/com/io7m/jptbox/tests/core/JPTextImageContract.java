@@ -16,13 +16,13 @@
 
 package com.io7m.jptbox.tests.core;
 
+import com.io7m.jaffirm.core.PreconditionViolationException;
 import com.io7m.jptbox.core.JPTextImageType;
 import com.io7m.jptbox.core.JPTextImages;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-import org.valid4j.errors.RequireViolation;
 
 public abstract class JPTextImageContract
 {
@@ -35,28 +35,28 @@ public abstract class JPTextImageContract
   @Test
   public final void testNegativeWidth()
   {
-    this.expected.expect(RequireViolation.class);
+    this.expected.expect(PreconditionViolationException.class);
     this.create(-1, 1);
   }
 
   @Test
   public final void testZeroWidth()
   {
-    this.expected.expect(RequireViolation.class);
+    this.expected.expect(PreconditionViolationException.class);
     this.create(0, 1);
   }
 
   @Test
   public final void testNegativeHeight()
   {
-    this.expected.expect(RequireViolation.class);
+    this.expected.expect(PreconditionViolationException.class);
     this.create(1, -1);
   }
 
   @Test
   public final void testZeroHeight()
   {
-    this.expected.expect(RequireViolation.class);
+    this.expected.expect(PreconditionViolationException.class);
     this.create(1, 0);
   }
 
@@ -65,7 +65,7 @@ public abstract class JPTextImageContract
   {
     final JPTextImageType image = this.create(1, 2);
 
-    this.expected.expect(RequireViolation.class);
+    this.expected.expect(PreconditionViolationException.class);
     image.get(-1, 0);
   }
 
@@ -74,7 +74,7 @@ public abstract class JPTextImageContract
   {
     final JPTextImageType image = this.create(1, 2);
 
-    this.expected.expect(RequireViolation.class);
+    this.expected.expect(PreconditionViolationException.class);
     image.get(2, 0);
   }
 
@@ -83,7 +83,7 @@ public abstract class JPTextImageContract
   {
     final JPTextImageType image = this.create(1, 2);
 
-    this.expected.expect(RequireViolation.class);
+    this.expected.expect(PreconditionViolationException.class);
     image.get(0, -1);
   }
 
@@ -92,7 +92,7 @@ public abstract class JPTextImageContract
   {
     final JPTextImageType image = this.create(1, 2);
 
-    this.expected.expect(RequireViolation.class);
+    this.expected.expect(PreconditionViolationException.class);
     image.get(0, 2);
   }
 
@@ -155,7 +155,7 @@ public abstract class JPTextImageContract
   {
     final JPTextImageType image = this.create(1, 2);
 
-    this.expected.expect(RequireViolation.class);
+    this.expected.expect(PreconditionViolationException.class);
     image.put(-1, 0, 'Q');
   }
 
@@ -164,7 +164,7 @@ public abstract class JPTextImageContract
   {
     final JPTextImageType image = this.create(1, 2);
 
-    this.expected.expect(RequireViolation.class);
+    this.expected.expect(PreconditionViolationException.class);
     image.put(2, 0, 'Q');
   }
 
@@ -173,7 +173,7 @@ public abstract class JPTextImageContract
   {
     final JPTextImageType image = this.create(1, 2);
 
-    this.expected.expect(RequireViolation.class);
+    this.expected.expect(PreconditionViolationException.class);
     image.put(0, -1, 'Q');
   }
 
@@ -182,7 +182,7 @@ public abstract class JPTextImageContract
   {
     final JPTextImageType image = this.create(1, 2);
 
-    this.expected.expect(RequireViolation.class);
+    this.expected.expect(PreconditionViolationException.class);
     image.put(0, 2, 'Q');
 
     for (int y = 0; y < 2; ++y) {
