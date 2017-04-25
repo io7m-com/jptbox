@@ -7,13 +7,13 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.io7m.jptbox</groupId>
-    <artifactId>io7m-jptbox</artifactId>
-    <version>0.1.0</version>
+    <artifactId>com.io7m.jptbox</artifactId>
+    <version>1.0.0</version>
   </parent>
-  <artifactId>io7m-jptbox-core</artifactId>
+  <artifactId>com.io7m.jptbox.core</artifactId>
 
-  <packaging>jar</packaging>
-  <name>io7m-jptbox-core</name>
+  <packaging>bundle</packaging>
+  <name>com.io7m.jptbox.core</name>
   <description>Plain text box drawing (Core)</description>
   <url>http://io7m.github.io/jptbox/</url>
 
@@ -25,21 +25,21 @@
 
   <dependencies>
     <dependency>
+      <groupId>com.io7m.jaffirm</groupId>
+      <artifactId>com.io7m.jaffirm.core</artifactId>
+    </dependency>
+    <dependency>
       <groupId>com.io7m.jnull</groupId>
-      <artifactId>io7m-jnull-core</artifactId>
+      <artifactId>com.io7m.jnull.core</artifactId>
     </dependency>
     <dependency>
       <groupId>com.io7m.junreachable</groupId>
-      <artifactId>io7m-junreachable-core</artifactId>
+      <artifactId>com.io7m.junreachable.core</artifactId>
     </dependency>
 
     <dependency>
       <groupId>it.unimi.dsi</groupId>
       <artifactId>fastutil</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.valid4j</groupId>
-      <artifactId>valid4j</artifactId>
     </dependency>
 
     <dependency>
@@ -55,6 +55,20 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
+      </plugin>
+
+      <!-- Produce OSGi bundle -->
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <instructions>
+            <Export-Package>
+              com.io7m.jptbox.core
+            </Export-Package>
+          </instructions>
+        </configuration>
       </plugin>
     </plugins>
   </build>

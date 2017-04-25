@@ -16,8 +16,8 @@
 
 package com.io7m.jptbox.core;
 
+import com.io7m.jaffirm.core.Preconditions;
 import com.io7m.jnull.NullCheck;
-import org.valid4j.Assertive;
 
 /**
  * The default implementation of the {@link JPTextBoxDrawingType} interface.
@@ -38,7 +38,7 @@ public final class JPTextBoxDrawing implements JPTextBoxDrawingType
 
   public static JPTextBoxDrawingType get()
   {
-    return JPTextBoxDrawing.INSTANCE;
+    return INSTANCE;
   }
 
   private static void merge(
@@ -47,8 +47,7 @@ public final class JPTextBoxDrawing implements JPTextBoxDrawingType
     final int y,
     final int new_char)
   {
-    final int replace =
-      JPTextBoxDrawing.mergeCharacter(image.get(x, y), new_char);
+    final int replace = mergeCharacter(image.get(x, y), new_char);
     image.put(x, y, replace);
   }
 
@@ -59,8 +58,7 @@ public final class JPTextBoxDrawing implements JPTextBoxDrawingType
     final int new_char)
   {
     if (image.isInside(x, y)) {
-      final int replace =
-        JPTextBoxDrawing.mergeCharacter(image.get(x, y), new_char);
+      final int replace = mergeCharacter(image.get(x, y), new_char);
       image.putSilent(x, y, replace);
     }
   }
@@ -171,68 +169,68 @@ public final class JPTextBoxDrawing implements JPTextBoxDrawingType
       return;
     }
 
-    Assertive.require(
+    Preconditions.checkPreconditionV(
       image.isInside(base_x, base_y),
       "Top left corner (%d, %d) must be inside the image",
       Integer.valueOf(base_x),
       Integer.valueOf(base_y));
-    Assertive.require(
+    Preconditions.checkPreconditionV(
       image.isInside(x_max, y_max),
       "Bottom right corner (%d, %d) must be inside the image",
       Integer.valueOf(x_max),
       Integer.valueOf(y_max));
 
     if (width == 1 && height == 1) {
-      JPTextBoxDrawing.merge(image, base_x, base_y, '□');
+      merge(image, base_x, base_y, '□');
       return;
     }
 
     for (int y = 1; y <= y_max - 1; ++y) {
       final int image_x = Math.addExact(base_x, 0);
       final int image_y = Math.addExact(base_y, y);
-      JPTextBoxDrawing.merge(image, image_x, image_y, '│');
+      merge(image, image_x, image_y, '│');
     }
 
     for (int y = 1; y <= y_max - 1; ++y) {
       final int image_x = Math.addExact(base_x, x_max);
       final int image_y = Math.addExact(base_y, y);
-      JPTextBoxDrawing.merge(image, image_x, image_y, '│');
+      merge(image, image_x, image_y, '│');
     }
 
     for (int x = 1; x <= x_max - 1; ++x) {
       final int image_x = Math.addExact(base_x, x);
       final int image_y = Math.addExact(base_y, 0);
-      JPTextBoxDrawing.merge(image, image_x, image_y, '─');
+      merge(image, image_x, image_y, '─');
     }
 
     for (int x = 1; x <= x_max - 1; ++x) {
       final int image_x = Math.addExact(base_x, x);
       final int image_y = Math.addExact(base_y, y_max);
-      JPTextBoxDrawing.merge(image, image_x, image_y, '─');
+      merge(image, image_x, image_y, '─');
     }
 
     {
       final int image_x = Math.addExact(base_x, 0);
       final int image_y = Math.addExact(base_y, 0);
-      JPTextBoxDrawing.merge(image, image_x, image_y, '┌');
+      merge(image, image_x, image_y, '┌');
     }
 
     {
       final int image_x = Math.addExact(base_x, 0);
       final int image_y = Math.addExact(base_y, y_max);
-      JPTextBoxDrawing.merge(image, image_x, image_y, '└');
+      merge(image, image_x, image_y, '└');
     }
 
     {
       final int image_x = Math.addExact(base_x, x_max);
       final int image_y = Math.addExact(base_y, y_max);
-      JPTextBoxDrawing.merge(image, image_x, image_y, '┘');
+      merge(image, image_x, image_y, '┘');
     }
 
     {
       final int image_x = Math.addExact(base_x, x_max);
       final int image_y = Math.addExact(base_y, 0);
-      JPTextBoxDrawing.merge(image, image_x, image_y, '┐');
+      merge(image, image_x, image_y, '┐');
     }
   }
 
@@ -251,7 +249,7 @@ public final class JPTextBoxDrawing implements JPTextBoxDrawingType
     }
 
     if (width == 1 && height == 1) {
-      JPTextBoxDrawing.mergeSilent(image, base_x, base_y, '□');
+      mergeSilent(image, base_x, base_y, '□');
       return;
     }
 
@@ -261,49 +259,49 @@ public final class JPTextBoxDrawing implements JPTextBoxDrawingType
     for (int y = 1; y <= y_max - 1; ++y) {
       final int image_x = Math.addExact(base_x, 0);
       final int image_y = Math.addExact(base_y, y);
-      JPTextBoxDrawing.mergeSilent(image, image_x, image_y, '│');
+      mergeSilent(image, image_x, image_y, '│');
     }
 
     for (int y = 1; y <= y_max - 1; ++y) {
       final int image_x = Math.addExact(base_x, x_max);
       final int image_y = Math.addExact(base_y, y);
-      JPTextBoxDrawing.mergeSilent(image, image_x, image_y, '│');
+      mergeSilent(image, image_x, image_y, '│');
     }
 
     for (int x = 1; x <= x_max - 1; ++x) {
       final int image_x = Math.addExact(base_x, x);
       final int image_y = Math.addExact(base_y, 0);
-      JPTextBoxDrawing.mergeSilent(image, image_x, image_y, '─');
+      mergeSilent(image, image_x, image_y, '─');
     }
 
     for (int x = 1; x <= x_max - 1; ++x) {
       final int image_x = Math.addExact(base_x, x);
       final int image_y = Math.addExact(base_y, y_max);
-      JPTextBoxDrawing.mergeSilent(image, image_x, image_y, '─');
+      mergeSilent(image, image_x, image_y, '─');
     }
 
     {
       final int image_x = Math.addExact(base_x, 0);
       final int image_y = Math.addExact(base_y, 0);
-      JPTextBoxDrawing.mergeSilent(image, image_x, image_y, '┌');
+      mergeSilent(image, image_x, image_y, '┌');
     }
 
     {
       final int image_x = Math.addExact(base_x, 0);
       final int image_y = Math.addExact(base_y, y_max);
-      JPTextBoxDrawing.mergeSilent(image, image_x, image_y, '└');
+      mergeSilent(image, image_x, image_y, '└');
     }
 
     {
       final int image_x = Math.addExact(base_x, x_max);
       final int image_y = Math.addExact(base_y, y_max);
-      JPTextBoxDrawing.mergeSilent(image, image_x, image_y, '┘');
+      mergeSilent(image, image_x, image_y, '┘');
     }
 
     {
       final int image_x = Math.addExact(base_x, x_max);
       final int image_y = Math.addExact(base_y, 0);
-      JPTextBoxDrawing.mergeSilent(image, image_x, image_y, '┐');
+      mergeSilent(image, image_x, image_y, '┐');
     }
   }
 }
