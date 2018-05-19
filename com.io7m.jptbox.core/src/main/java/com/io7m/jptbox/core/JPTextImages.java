@@ -45,7 +45,7 @@ public final class JPTextImages
 
   public static String show(final JPTextImageType image)
   {
-    try (final StringWriter writer =
+    try (StringWriter writer =
            new StringWriter(image.width() * image.height())) {
 
       final StringBuilder sb = new StringBuilder(image.width());

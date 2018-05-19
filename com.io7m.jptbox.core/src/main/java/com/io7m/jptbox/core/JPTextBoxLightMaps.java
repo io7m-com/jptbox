@@ -94,236 +94,259 @@ public final class JPTextBoxLightMaps
   public static final Int2IntMap EXISTS_JUNCTION_UP;
 
   static {
-    {
-      // existing: ┐
-      final Int2IntOpenHashMap m = new Int2IntOpenHashMap(10);
-      m.put('┤', '┤');
-      m.put('├', '┼');
+    EXISTS_TOP_RIGHT_CORNER = existsTopRightMap();
+    EXISTS_TOP_LEFT_CORNER = existsTopLeftMap();
+    EXISTS_BOTTOM_LEFT_CORNER = existsBottomLeftMap();
+    EXISTS_BOTTOM_RIGHT_CORNER = existsBottomRightMap();
+    EXISTS_HORIZONTAL = existsHorizontalMap();
+    EXISTS_VERTICAL = existsVerticalMap();
+    EXISTS_CROSS = existsCrossMap();
+    EXISTS_JUNCTION_LEFT = existsJunctionLeftMap();
+    EXISTS_JUNCTION_RIGHT = existsJunctionRightMap();
+    EXISTS_JUNCTION_DOWN = existsJunctionDownMap();
+    EXISTS_JUNCTION_UP = existsJunctionUpMap();
+  }
+
+  private static Int2IntMap existsJunctionUpMap()
+  {
+    // existing: ┴
+    final Int2IntOpenHashMap m = new Int2IntOpenHashMap(10);
+    m.put('┤', '┼');
+    m.put('├', '┼');
+
+    m.put('┬', '┼');
+    m.put('┴', '┴');
+
+    m.put('┘', '┴');
+    m.put('└', '┴');
+
+    m.put('┌', '┼');
+    m.put('┐', '┼');
+
+    m.put('│', '┼');
+    m.put('─', '┴');
+
+    return Int2IntMaps.unmodifiable(m);
+  }
+
+  private static Int2IntMap existsJunctionDownMap()
+  {
+    // existing: ┬
+    final Int2IntOpenHashMap m = new Int2IntOpenHashMap(10);
+    m.put('┤', '┼');
+    m.put('├', '┼');
+
+    m.put('┬', '┬');
+    m.put('┴', '┼');
 
-      m.put('┬', '┬');
-      m.put('┴', '┼');
+    m.put('┘', '┼');
+    m.put('└', '┼');
 
-      m.put('┘', '┤');
-      m.put('└', '┼');
+    m.put('┌', '┬');
+    m.put('┐', '┬');
+
+    m.put('│', '┼');
+    m.put('─', '┬');
+
+    return Int2IntMaps.unmodifiable(m);
+  }
 
-      m.put('┌', '┬');
-      m.put('┐', '┐');
+  private static Int2IntMap existsJunctionRightMap()
+  {
+    // existing: ├
+    final Int2IntOpenHashMap m = new Int2IntOpenHashMap(10);
+    m.put('┤', '┼');
+    m.put('├', '├');
 
-      m.put('│', '┤');
-      m.put('─', '┬');
+    m.put('┬', '┼');
+    m.put('┴', '┼');
 
-      EXISTS_TOP_RIGHT_CORNER = Int2IntMaps.unmodifiable(m);
-    }
+    m.put('┘', '├');
+    m.put('└', '├');
 
-    {
-      // existing: ┌
-      final Int2IntOpenHashMap m = new Int2IntOpenHashMap(10);
-      m.put('┤', '┼');
-      m.put('├', '├');
+    m.put('┌', '├');
+    m.put('┐', '┼');
 
-      m.put('┬', '┬');
-      m.put('┴', '┼');
+    m.put('│', '├');
+    m.put('─', '┼');
 
-      m.put('┘', '┼');
-      m.put('└', '├');
+    return Int2IntMaps.unmodifiable(m);
+  }
 
-      m.put('┌', '┌');
-      m.put('┐', '┬');
+  private static Int2IntMap existsJunctionLeftMap()
+  {
+    // existing: ┤
+    final Int2IntOpenHashMap m = new Int2IntOpenHashMap(10);
+    m.put('┤', '┤');
+    m.put('├', '┼');
 
-      m.put('│', '├');
-      m.put('─', '┬');
+    m.put('┬', '┼');
+    m.put('┴', '┼');
 
-      EXISTS_TOP_LEFT_CORNER = Int2IntMaps.unmodifiable(m);
-    }
+    m.put('┘', '┤');
+    m.put('└', '┼');
 
-    {
-      // existing: └
-      final Int2IntOpenHashMap m = new Int2IntOpenHashMap(10);
-      m.put('┤', '┼');
-      m.put('├', '├');
+    m.put('┌', '┼');
+    m.put('┐', '┤');
 
-      m.put('┬', '┼');
-      m.put('┴', '┴');
+    m.put('│', '┤');
+    m.put('─', '┼');
 
-      m.put('┘', '┴');
-      m.put('└', '└');
+    return Int2IntMaps.unmodifiable(m);
+  }
 
-      m.put('┌', '├');
-      m.put('┐', '┼');
+  private static Int2IntMap existsCrossMap()
+  {
+    // existing: ┼
+    final Int2IntOpenHashMap m = new Int2IntOpenHashMap(10);
+    m.put('┤', '┼');
+    m.put('├', '┼');
 
-      m.put('│', '├');
-      m.put('─', '┴');
+    m.put('┬', '┼');
+    m.put('┴', '┼');
 
-      EXISTS_BOTTOM_LEFT_CORNER = Int2IntMaps.unmodifiable(m);
-    }
+    m.put('┘', '┼');
+    m.put('└', '┼');
 
-    {
-      // existing: ┘
-      final Int2IntOpenHashMap m = new Int2IntOpenHashMap(10);
-      m.put('┤', '┤');
-      m.put('├', '┼');
+    m.put('┌', '┼');
+    m.put('┐', '┼');
 
-      m.put('┬', '┼');
-      m.put('┴', '┴');
+    m.put('│', '┼');
+    m.put('─', '┼');
 
-      m.put('┘', '┘');
-      m.put('└', '┴');
+    return Int2IntMaps.unmodifiable(m);
+  }
 
-      m.put('┌', '┼');
-      m.put('┐', '┤');
+  private static Int2IntMap existsVerticalMap()
+  {
+    // existing: │
+    final Int2IntOpenHashMap m = new Int2IntOpenHashMap(10);
+    m.put('┤', '┤');
+    m.put('├', '├');
 
-      m.put('│', '┤');
-      m.put('─', '┴');
+    m.put('┬', '┼');
+    m.put('┴', '┼');
 
-      EXISTS_BOTTOM_RIGHT_CORNER = Int2IntMaps.unmodifiable(m);
-    }
+    m.put('┘', '┤');
+    m.put('└', '├');
 
-    {
-      // existing: ─
-      final Int2IntOpenHashMap m = new Int2IntOpenHashMap(10);
-      m.put('┤', '┼');
-      m.put('├', '┼');
+    m.put('┌', '├');
+    m.put('┐', '┤');
 
-      m.put('┬', '┬');
-      m.put('┴', '┴');
+    m.put('│', '│');
+    m.put('─', '┼');
 
-      m.put('┘', '┴');
-      m.put('└', '┴');
+    return Int2IntMaps.unmodifiable(m);
+  }
 
-      m.put('┌', '┬');
-      m.put('┐', '┬');
+  private static Int2IntMap existsHorizontalMap()
+  {
+    // existing: ─
+    final Int2IntOpenHashMap m = new Int2IntOpenHashMap(10);
+    m.put('┤', '┼');
+    m.put('├', '┼');
 
-      m.put('│', '┼');
-      m.put('─', '─');
+    m.put('┬', '┬');
+    m.put('┴', '┴');
 
-      EXISTS_HORIZONTAL = Int2IntMaps.unmodifiable(m);
-    }
+    m.put('┘', '┴');
+    m.put('└', '┴');
 
-    {
-      // existing: │
-      final Int2IntOpenHashMap m = new Int2IntOpenHashMap(10);
-      m.put('┤', '┤');
-      m.put('├', '├');
+    m.put('┌', '┬');
+    m.put('┐', '┬');
 
-      m.put('┬', '┼');
-      m.put('┴', '┼');
+    m.put('│', '┼');
+    m.put('─', '─');
 
-      m.put('┘', '┤');
-      m.put('└', '├');
+    return Int2IntMaps.unmodifiable(m);
+  }
 
-      m.put('┌', '├');
-      m.put('┐', '┤');
+  private static Int2IntMap existsBottomRightMap()
+  {
+    // existing: ┘
+    final Int2IntOpenHashMap m = new Int2IntOpenHashMap(10);
+    m.put('┤', '┤');
+    m.put('├', '┼');
 
-      m.put('│', '│');
-      m.put('─', '┼');
+    m.put('┬', '┼');
+    m.put('┴', '┴');
 
-      EXISTS_VERTICAL = Int2IntMaps.unmodifiable(m);
-    }
+    m.put('┘', '┘');
+    m.put('└', '┴');
 
-    {
-      // existing: ┼
-      final Int2IntOpenHashMap m = new Int2IntOpenHashMap(10);
-      m.put('┤', '┼');
-      m.put('├', '┼');
+    m.put('┌', '┼');
+    m.put('┐', '┤');
 
-      m.put('┬', '┼');
-      m.put('┴', '┼');
+    m.put('│', '┤');
+    m.put('─', '┴');
 
-      m.put('┘', '┼');
-      m.put('└', '┼');
+    return Int2IntMaps.unmodifiable(m);
+  }
 
-      m.put('┌', '┼');
-      m.put('┐', '┼');
+  private static Int2IntMap existsBottomLeftMap()
+  {
+    // existing: └
+    final Int2IntOpenHashMap m = new Int2IntOpenHashMap(10);
+    m.put('┤', '┼');
+    m.put('├', '├');
 
-      m.put('│', '┼');
-      m.put('─', '┼');
+    m.put('┬', '┼');
+    m.put('┴', '┴');
 
-      EXISTS_CROSS = Int2IntMaps.unmodifiable(m);
-    }
+    m.put('┘', '┴');
+    m.put('└', '└');
 
-    {
-      // existing: ┤
-      final Int2IntOpenHashMap m = new Int2IntOpenHashMap(10);
-      m.put('┤', '┤');
-      m.put('├', '┼');
+    m.put('┌', '├');
+    m.put('┐', '┼');
 
-      m.put('┬', '┼');
-      m.put('┴', '┼');
+    m.put('│', '├');
+    m.put('─', '┴');
 
-      m.put('┘', '┤');
-      m.put('└', '┼');
+    return Int2IntMaps.unmodifiable(m);
+  }
 
-      m.put('┌', '┼');
-      m.put('┐', '┤');
+  private static Int2IntMap existsTopLeftMap()
+  {
+    // existing: ┌
+    final Int2IntOpenHashMap m = new Int2IntOpenHashMap(10);
+    m.put('┤', '┼');
+    m.put('├', '├');
 
-      m.put('│', '┤');
-      m.put('─', '┼');
+    m.put('┬', '┬');
+    m.put('┴', '┼');
 
-      EXISTS_JUNCTION_LEFT = Int2IntMaps.unmodifiable(m);
-    }
+    m.put('┘', '┼');
+    m.put('└', '├');
 
-    {
-      // existing: ├
-      final Int2IntOpenHashMap m = new Int2IntOpenHashMap(10);
-      m.put('┤', '┼');
-      m.put('├', '├');
+    m.put('┌', '┌');
+    m.put('┐', '┬');
 
-      m.put('┬', '┼');
-      m.put('┴', '┼');
+    m.put('│', '├');
+    m.put('─', '┬');
 
-      m.put('┘', '├');
-      m.put('└', '├');
+    return Int2IntMaps.unmodifiable(m);
+  }
 
-      m.put('┌', '├');
-      m.put('┐', '┼');
+  private static Int2IntMap existsTopRightMap()
+  {
+    // existing: ┐
+    final Int2IntOpenHashMap m = new Int2IntOpenHashMap(10);
+    m.put('┤', '┤');
+    m.put('├', '┼');
 
-      m.put('│', '├');
-      m.put('─', '┼');
+    m.put('┬', '┬');
+    m.put('┴', '┼');
 
-      EXISTS_JUNCTION_RIGHT = Int2IntMaps.unmodifiable(m);
-    }
+    m.put('┘', '┤');
+    m.put('└', '┼');
 
-    {
-      // existing: ┬
-      final Int2IntOpenHashMap m = new Int2IntOpenHashMap(10);
-      m.put('┤', '┼');
-      m.put('├', '┼');
+    m.put('┌', '┬');
+    m.put('┐', '┐');
 
-      m.put('┬', '┬');
-      m.put('┴', '┼');
+    m.put('│', '┤');
+    m.put('─', '┬');
 
-      m.put('┘', '┼');
-      m.put('└', '┼');
-
-      m.put('┌', '┬');
-      m.put('┐', '┬');
-
-      m.put('│', '┼');
-      m.put('─', '┬');
-
-      EXISTS_JUNCTION_DOWN = Int2IntMaps.unmodifiable(m);
-    }
-
-    {
-      // existing: ┴
-      final Int2IntOpenHashMap m = new Int2IntOpenHashMap(10);
-      m.put('┤', '┼');
-      m.put('├', '┼');
-
-      m.put('┬', '┼');
-      m.put('┴', '┴');
-
-      m.put('┘', '┴');
-      m.put('└', '┴');
-
-      m.put('┌', '┼');
-      m.put('┐', '┼');
-
-      m.put('│', '┼');
-      m.put('─', '┴');
-
-      EXISTS_JUNCTION_UP = Int2IntMaps.unmodifiable(m);
-    }
+    return Int2IntMaps.unmodifiable(m);
   }
 
   private JPTextBoxLightMaps()

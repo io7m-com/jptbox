@@ -1,5 +1,5 @@
 /*
- * Copyright © 2015 <code@io7m.com> http://io7m.com
+ * Copyright © 2016 <code@io7m.com> http://io7m.com
  *
  * Permission to use, copy, modify, and/or distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -14,17 +14,15 @@
  * IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-package com.io7m.jptbox.checkstyle;
-
 /**
- * Marker class for looking up files by resource.
+ * Plain text box drawing (Core)
  */
 
-public final class Checkstyle
+module com.io7m.jptbox.core
 {
-  private Checkstyle()
-  {
-    throw new AssertionError("Unreachable code");
-  }
-}
+  requires com.io7m.jaffirm.core;
+  requires com.io7m.junreachable.core;
+  requires fastutil;
 
+  exports com.io7m.jptbox.core;
+}

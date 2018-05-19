@@ -17,7 +17,7 @@
 package com.io7m.jptbox.core;
 
 import com.io7m.jaffirm.core.Preconditions;
-import com.io7m.jnull.NullCheck;
+import java.util.Objects;
 
 /**
  * The default implementation of the {@link JPTextBoxDrawingType} interface.
@@ -160,7 +160,7 @@ public final class JPTextBoxDrawing implements JPTextBoxDrawingType
     final int width,
     final int height)
   {
-    NullCheck.notNull(image, "Image");
+    Objects.requireNonNull(image, "Image");
 
     final int x_max = width - 1;
     final int y_max = height - 1;
@@ -242,7 +242,7 @@ public final class JPTextBoxDrawing implements JPTextBoxDrawingType
     final int width,
     final int height)
   {
-    NullCheck.notNull(image, "Image");
+    Objects.requireNonNull(image, "Image");
 
     if (width == 0 || height == 0) {
       return;

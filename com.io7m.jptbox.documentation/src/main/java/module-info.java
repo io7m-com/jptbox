@@ -15,8 +15,12 @@
  */
 
 /**
- * Checkstyle policy.
+ * Plain text box drawing (Documentation)
  */
 
-@com.io7m.jnull.NonNullByDefault package com.io7m.jptbox.checkstyle;
+module com.io7m.jptbox.documentation
+{
+  requires com.io7m.jptbox.core;
 
+  exports com.io7m.jptbox.documentation;
+}
