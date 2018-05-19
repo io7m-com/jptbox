@@ -353,4 +353,102 @@ public final class JPTextBoxLightMaps
   {
     throw new UnreachableCodeException();
   }
+
+  /**
+   * Merge the new character with the existing character.
+   *
+   * @param existing_char The existing character
+   * @param new_char      The new character
+   *
+   * @return A character representing the merge
+   */
+
+  // CHECKSTYLE:OFF
+  public static int mergeCharacter(
+    final int existing_char,
+    final int new_char)
+  {
+    switch (existing_char) {
+
+      case '┐': {
+        if (EXISTS_TOP_RIGHT_CORNER.containsKey(new_char)) {
+          return EXISTS_TOP_RIGHT_CORNER.get(new_char);
+        }
+        return new_char;
+      }
+
+      case '┌': {
+        if (EXISTS_TOP_LEFT_CORNER.containsKey(new_char)) {
+          return EXISTS_TOP_LEFT_CORNER.get(new_char);
+        }
+        return new_char;
+      }
+
+      case '└': {
+        if (EXISTS_BOTTOM_LEFT_CORNER.containsKey(new_char)) {
+          return EXISTS_BOTTOM_LEFT_CORNER.get(new_char);
+        }
+        return new_char;
+      }
+
+      case '┘': {
+        if (EXISTS_BOTTOM_RIGHT_CORNER.containsKey(new_char)) {
+          return EXISTS_BOTTOM_RIGHT_CORNER.get(new_char);
+        }
+        return new_char;
+      }
+
+      case '─': {
+        if (EXISTS_HORIZONTAL.containsKey(new_char)) {
+          return EXISTS_HORIZONTAL.get(new_char);
+        }
+        return new_char;
+      }
+
+      case '│': {
+        if (EXISTS_VERTICAL.containsKey(new_char)) {
+          return EXISTS_VERTICAL.get(new_char);
+        }
+        return new_char;
+      }
+
+      case '┼': {
+        if (EXISTS_CROSS.containsKey(new_char)) {
+          return EXISTS_CROSS.get(new_char);
+        }
+        return new_char;
+      }
+
+      case '┤': {
+        if (EXISTS_JUNCTION_LEFT.containsKey(new_char)) {
+          return EXISTS_JUNCTION_LEFT.get(new_char);
+        }
+        return new_char;
+      }
+
+      case '├': {
+        if (EXISTS_JUNCTION_RIGHT.containsKey(new_char)) {
+          return EXISTS_JUNCTION_RIGHT.get(new_char);
+        }
+        return new_char;
+      }
+
+      case '┬': {
+        if (EXISTS_JUNCTION_DOWN.containsKey(new_char)) {
+          return EXISTS_JUNCTION_DOWN.get(new_char);
+        }
+        return new_char;
+      }
+
+      case '┴': {
+        if (EXISTS_JUNCTION_UP.containsKey(new_char)) {
+          return EXISTS_JUNCTION_UP.get(new_char);
+        }
+        return new_char;
+      }
+    }
+
+    // CHECKSTYLE:ON
+    return new_char;
+  }
 }

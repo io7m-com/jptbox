@@ -58,7 +58,7 @@ public final class JPTextImages
         final String line =
           TRAILING_WHITESPACE.matcher(sb.toString()).replaceAll("");
         writer.write(line);
-        writer.write("\n");
+        writer.write('\n');
       }
 
       return writer.toString();

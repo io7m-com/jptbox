@@ -47,7 +47,7 @@ public final class JPTextBoxDrawing implements JPTextBoxDrawingType
     final int y,
     final int new_char)
   {
-    final int replace = mergeCharacter(image.get(x, y), new_char);
+    final int replace = JPTextBoxLightMaps.mergeCharacter(image.get(x, y), new_char);
     image.put(x, y, replace);
   }
 
@@ -58,98 +58,9 @@ public final class JPTextBoxDrawing implements JPTextBoxDrawingType
     final int new_char)
   {
     if (image.isInside(x, y)) {
-      final int replace = mergeCharacter(image.get(x, y), new_char);
+      final int replace = JPTextBoxLightMaps.mergeCharacter(image.get(x, y), new_char);
       image.putSilent(x, y, replace);
     }
-  }
-
-  // CHECKSTYLE:OFF
-  private static int mergeCharacter(
-    final int existing_char,
-    final int new_char)
-  {
-    switch (existing_char) {
-
-      case '┐': {
-        if (JPTextBoxLightMaps.EXISTS_TOP_RIGHT_CORNER.containsKey(new_char)) {
-          return JPTextBoxLightMaps.EXISTS_TOP_RIGHT_CORNER.get(new_char);
-        }
-        return new_char;
-      }
-
-      case '┌': {
-        if (JPTextBoxLightMaps.EXISTS_TOP_LEFT_CORNER.containsKey(new_char)) {
-          return JPTextBoxLightMaps.EXISTS_TOP_LEFT_CORNER.get(new_char);
-        }
-        return new_char;
-      }
-
-      case '└': {
-        if (JPTextBoxLightMaps.EXISTS_BOTTOM_LEFT_CORNER.containsKey(new_char)) {
-          return JPTextBoxLightMaps.EXISTS_BOTTOM_LEFT_CORNER.get(new_char);
-        }
-        return new_char;
-      }
-
-      case '┘': {
-        if (JPTextBoxLightMaps.EXISTS_BOTTOM_RIGHT_CORNER.containsKey(new_char)) {
-          return JPTextBoxLightMaps.EXISTS_BOTTOM_RIGHT_CORNER.get(new_char);
-        }
-        return new_char;
-      }
-
-      case '─': {
-        if (JPTextBoxLightMaps.EXISTS_HORIZONTAL.containsKey(new_char)) {
-          return JPTextBoxLightMaps.EXISTS_HORIZONTAL.get(new_char);
-        }
-        return new_char;
-      }
-
-      case '│': {
-        if (JPTextBoxLightMaps.EXISTS_VERTICAL.containsKey(new_char)) {
-          return JPTextBoxLightMaps.EXISTS_VERTICAL.get(new_char);
-        }
-        return new_char;
-      }
-
-      case '┼': {
-        if (JPTextBoxLightMaps.EXISTS_CROSS.containsKey(new_char)) {
-          return JPTextBoxLightMaps.EXISTS_CROSS.get(new_char);
-        }
-        return new_char;
-      }
-
-      case '┤': {
-        if (JPTextBoxLightMaps.EXISTS_JUNCTION_LEFT.containsKey(new_char)) {
-          return JPTextBoxLightMaps.EXISTS_JUNCTION_LEFT.get(new_char);
-        }
-        return new_char;
-      }
-
-      case '├': {
-        if (JPTextBoxLightMaps.EXISTS_JUNCTION_RIGHT.containsKey(new_char)) {
-          return JPTextBoxLightMaps.EXISTS_JUNCTION_RIGHT.get(new_char);
-        }
-        return new_char;
-      }
-
-      case '┬': {
-        if (JPTextBoxLightMaps.EXISTS_JUNCTION_DOWN.containsKey(new_char)) {
-          return JPTextBoxLightMaps.EXISTS_JUNCTION_DOWN.get(new_char);
-        }
-        return new_char;
-      }
-
-      case '┴': {
-        if (JPTextBoxLightMaps.EXISTS_JUNCTION_UP.containsKey(new_char)) {
-          return JPTextBoxLightMaps.EXISTS_JUNCTION_UP.get(new_char);
-        }
-        return new_char;
-      }
-    }
-
-    // CHECKSTYLE:ON
-    return new_char;
   }
 
   @Override
