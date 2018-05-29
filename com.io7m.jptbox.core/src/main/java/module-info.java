@@ -22,7 +22,7 @@ module com.io7m.jptbox.core
 {
   requires com.io7m.jaffirm.core;
   requires com.io7m.junreachable.core;
-  requires fastutil;
+  requires it.unimi.dsi.fastutil;
 
   exports com.io7m.jptbox.core;
 }
