@@ -6,7 +6,7 @@
   <parent>
     <groupId>com.io7m.primogenitor</groupId>
     <artifactId>com.io7m.primogenitor.full</artifactId>
-    <version>3.3.0</version>
+    <version>5.0.0</version>
   </parent>
 
   <groupId>com.io7m.jptbox</groupId>
@@ -24,6 +24,7 @@
   </modules>
 
   <properties>
+    <com.codacy.id>b21f135a032748408c0249563e94c1eb</com.codacy.id>
     <io7m.api.previousVersion>1.0.0</io7m.api.previousVersion>
   </properties>
 
@@ -90,7 +91,7 @@
       <dependency>
         <groupId>com.io7m.primogenitor</groupId>
         <artifactId>com.io7m.primogenitor.support</artifactId>
-        <version>3.3.0</version>
+        <version>5.0.0</version>
       </dependency>
       <dependency>
         <groupId>it.unimi.dsi</groupId>
