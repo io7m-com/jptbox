@@ -1,5 +1,5 @@
 /*
- * Copyright © 2016 <code@io7m.com> http://io7m.com
+ * Copyright © 2016 Mark Raynsford <code@io7m.com> https://www.io7m.com
  *
  * Permission to use, copy, modify, and/or distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above
@@ -45,7 +45,7 @@ public final class JPTextImages
 
   public static String show(final JPTextImageType image)
   {
-    try (final StringWriter writer =
+    try (StringWriter writer =
            new StringWriter(image.width() * image.height())) {
 
       final StringBuilder sb = new StringBuilder(image.width());
@@ -58,7 +58,7 @@ public final class JPTextImages
         final String line =
           TRAILING_WHITESPACE.matcher(sb.toString()).replaceAll("");
         writer.write(line);
-        writer.write("\n");
+        writer.write('\n');
       }
 
       return writer.toString();
