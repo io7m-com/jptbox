@@ -16,7 +16,7 @@
   <packaging>pom</packaging>
   <name>com.io7m.jptbox</name>
   <description>Plain text box drawing</description>
-  <url>http://github.com/io7m/jptbox</url>
+  <url>https://www.io7m.com/software/jptbox</url>
 
   <modules>
     <module>com.io7m.jptbox.core</module>
@@ -24,14 +24,13 @@
   </modules>
 
   <properties>
-    <com.codacy.id>b21f135a032748408c0249563e94c1eb</com.codacy.id>
     <io7m.api.previousVersion>1.0.0</io7m.api.previousVersion>
   </properties>
 
   <licenses>
     <license>
       <name>ISC License</name>
-      <url>http://io7m.com/license/isc.txt</url>
+      <url>https://www.io7m.com/license/isc.txt</url>
     </license>
   </licenses>
 
@@ -46,7 +45,7 @@
       <id>io7m</id>
       <name>io7m</name>
       <email>code@io7m.com</email>
-      <url>http://io7m.com</url>
+      <url>https://www.io7m.com</url>
     </developer>
   </developers>
 
@@ -100,6 +99,17 @@
       </dependency>
 
       <dependency>
+        <groupId>org.osgi</groupId>
+        <artifactId>org.osgi.annotation.versioning</artifactId>
+        <version>1.1.2</version>
+      </dependency>
+      <dependency>
+        <groupId>org.osgi</groupId>
+        <artifactId>org.osgi.annotation.bundle</artifactId>
+        <version>2.0.0</version>
+      </dependency>
+
+      <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
         <version>4.13.2</version>
@@ -129,6 +139,12 @@
     </pluginManagement>
 
     <plugins>
+      <!-- Spot bugs -->
+      <plugin>
+        <groupId>com.github.spotbugs</groupId>
+        <artifactId>spotbugs-maven-plugin</artifactId>
+      </plugin>
+
       <!-- Generate a site -->
       <plugin>
         <groupId>com.io7m.minisite</groupId>
