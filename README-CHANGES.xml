@@ -11,9 +11,9 @@
         <c:change date="2016-07-31T00:00:00+00:00" summary="Initial release."/>
       </c:changes>
     </c:release>
-    <c:release date="2022-04-10T10:44:49+00:00" is-open="true" ticket-system="com.github.io7m.jptbox" version="2.0.0">
+    <c:release date="2022-04-10T10:46:14+00:00" is-open="false" ticket-system="com.github.io7m.jptbox" version="2.0.0">
       <c:changes>
-        <c:change compatible="false" date="2022-04-10T10:44:49+00:00" summary="Require JDK 17"/>
+        <c:change compatible="false" date="2022-04-10T00:00:00+00:00" summary="Require JDK 17"/>
       </c:changes>
     </c:release>
   </c:releases>
