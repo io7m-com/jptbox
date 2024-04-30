@@ -18,6 +18,6 @@
     </c:release>
   </c:releases>
   <c:ticket-systems>
-    <c:ticket-system default="true" id="com.github.io7m.jptbox" url="https://github.com/io7m/jptbox/issues/"/>
+    <c:ticket-system default="true" id="com.github.io7m.jptbox" url="https://www.github.com/io7m-com/jptbox/issues/"/>
   </c:ticket-systems>
 </c:changelog>

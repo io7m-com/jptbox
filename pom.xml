@@ -21,6 +21,7 @@
   <modules>
     <module>com.io7m.jptbox.core</module>
     <module>com.io7m.jptbox.documentation</module>
+    <module>com.io7m.jptbox.tests</module>
   </modules>
 
   <properties>
@@ -36,9 +37,9 @@
   </licenses>
 
   <scm>
-    <url>https://github.com/io7m/jptbox</url>
-    <connection>scm:git:https://github.com/io7m/jptbox</connection>
-    <developerConnection>scm:git:https://github.com/io7m/jptbox</developerConnection>
+    <url>https://www.github.com/io7m-com/jptbox</url>
+    <connection>scm:git:https://www.github.com/io7m-com/jptbox</connection>
+    <developerConnection>scm:git:https://www.github.com/io7m-com/jptbox</developerConnection>
   </scm>
 
   <developers>
@@ -51,7 +52,7 @@
   </developers>
 
   <issueManagement>
-    <url>http://github.com/io7m/jptbox/issues</url>
+    <url>http://www.github.com/io7m-com/jptbox/issues</url>
     <system>GitHub Issues</system>
   </issueManagement>
 
@@ -69,7 +70,7 @@
 
   <ciManagement>
     <system>GitHub Actions</system>
-    <url>https://github.com/jptbox/actions</url>
+    <url>https://www.github.com/io7m-com/jptbox/actions</url>
   </ciManagement>
 
   <prerequisites>
