@@ -2,3 +2,5 @@ target
 *.iml
 .idea
 pom.xml.versionsBackup
+.jqwik-database
+dependency-reduced-pom.xml
